@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .movie {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .movie img {
+            max-width: 150px;
+            margin-right: 20px;
+        }
+        .movie-details {
+            max-width: 600px;
+        }
+        .movie-title {
+            font-size: 24px;
+            margin: 0 0 10px;
+        }
+        .movie-description {
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+        <!-- Add more movie entries as needed -->
+        <div class="movie">
+            <img src="<%= result.image %>" alt="Movie Poster">
+            <div class="movie-details">
+                <h2 class="movie-title"><%= result.title %></h2>
+                <p class="movie-description"><%= result.overview %></p>
+                <% result.crew.forEach(crew =>{ %>
+                    <p class="movie-crew"><strong><%= crew.name %></strong> <%= crew.role %></p>
+
+             <% }) %>
+                
+                <p class="movie-date"><strong>Release Date:</strong> <%= result.date %></p>
+                <p class="movie-rating"><strong>Rating:</strong> 8.5/10</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
